@@ -1,0 +1,33 @@
+<div class="container">
+    <div>
+        <h2>Buscador</h2>
+        <p>
+            Ingrese el nombre científico o el nombre común de una planta para buscar información relevante.
+        </p>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-4 form-container">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <input type="text" class="form-control" placeholder="buscar" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="keyword">
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="getPlants()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">imagen</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let plant of plants; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{plant.name}}</td>
+            <td><img [src]="'data:image/png;base64,' + plant.img" [alt]="plant.name" height="50px" width="50px"></td>
+        </tr>
+    </tbody>
+    </table>
+</div>

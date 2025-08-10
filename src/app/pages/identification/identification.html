@@ -1,0 +1,35 @@
+<div class="container">
+    <div>
+        <h2>Identificador</h2>
+        <p>
+            Puede subir una imagen o agregar el enlace de una imagen en la web para identificar la planta y obtener información
+            relevante.
+        </p>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-4 form-container">
+                <img [src]="imgSrc" alt="plant" height="200px" width="200px" style="margin: 10px;" *ngIf="imgSrc" >
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="inputGroupFile02" (change)="onFileSelected($event)">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-around">
+        <div class="col-lg-3 ms-1 me-1 mt-5" *ngFor="let suggestion of expectedObject.suggestions">
+            <div class="card">
+                <img [src]="suggestion.similar_images[0].url" class="card-img-top" alt="..." height="300px">
+                <div class="card-body">
+                    <h5 class="card-title">{{suggestion.name}}</h5>
+                    <p class="card-text">{{suggestion.details.description ? suggestion.details.description.value : 'N/A'}}</p>
+                    <div *ngIf="suggestion.details.common_names">
+                        <h6>Nombres comunes</h6>
+                        <ul>
+                            <li *ngFor="let common_name of suggestion.details.common_names">{{common_name}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
