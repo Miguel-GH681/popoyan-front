@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class Api {
-  private baseUrl = 'http://localhost:3000/api/plants';
+  private baseUrl = 'http://localhost:3000/api';
 
   constructor(private http : HttpClient){}
 
@@ -13,6 +13,14 @@ export class Api {
     let params = new HttpParams();
     params = params.set('keyword', keyword);
 
-    return this.http.get(`${this.baseUrl}/plants`, {params});
+    return this.http.get(`${this.baseUrl}/plants/plants`, {params});
+  }
+
+  getChats(){
+    return this.http.get(`${this.baseUrl}/chats`);
+  }
+
+  getMessages(chatId : number){
+    return this.http.get(`${this.baseUrl}/chats/message/${chatId}`);
   }
 }

@@ -9,18 +9,33 @@ import { Plant } from '../../core/models/plant';
   styleUrl: './browser.css'
 })
 export class Browser {
-  plants : Plant[] = [];
+  plantsCollection : Plant[] = [];
+  paginatedPlants: Plant[] = [];
   keyword : string = '';
+  currentPage : number = 1;
+  itemsPerPage : number = 10;
 
   constructor(private apiService : Api){}
 
   getPlants(){
     if(this.keyword != ''){
       this.apiService.getPlants(this.keyword).subscribe((res:any) =>{
-        this.plants = res;
+        this.plantsCollection = res;
+        this.paginatedPlants = this.plantsCollection.slice(0, this.itemsPerPage);
       }, err =>{
         console.log({err});
       });
+    }
+  }
+
+  get getTotalPages(){
+    return Math.ceil(this.plantsCollection.length / this.itemsPerPage);
+  }
+
+  changePage(newPage : number){
+    if(newPage >= 1 && newPage < this.getTotalPages){
+      this.currentPage = newPage;
+      this.paginatedPlants = this.plantsCollection.slice(this.currentPage, this.currentPage + newPage)
     }
   }
 }

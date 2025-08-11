@@ -1,1 +1,30 @@
-<p>plant-bot works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 bg-light border-end p-3">
+            <h5>Historial</h5>
+            <ul class="list-group">
+                <li *ngFor="let chat of chats; let i = index" class="list-group-item list-group-item-action" [class.active]="i === selectedChatIndex" (click)="selectChat(i)">
+                    Chat {{ i + 1 }}
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-9 d-flex flex-column">
+            <div class="flex-grow-1 p-3 overflow-auto border-bottom" style="max-height: 70vh;">
+                <div *ngFor="let message of currentChat.messages">
+                    <div *ngIf="message.chat_role === 'user'" class="text-end mb-2">
+                        <span class="badge bg-primary">{{ message.content }}</span>
+                    </div>
+                    <div *ngIf="message.chat_role === 'assistant'" class="text-start mb-2">
+                        <span class="badge bg-secondary">{{ message.content }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-top d-flex">
+                <input type="text" class="form-control me-2" placeholder="Escribe tu mensaje..." [(ngModel)]="newMessage" (keyup.enter)="sendMessage()"/>
+                <button class="btn btn-primary" (click)="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>

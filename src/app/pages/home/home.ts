@@ -11,34 +11,32 @@ export class Home {
   cards : any[] = [{
     title: "Identificación",
     description: "Identifica plantas a través de imágenes de referencia.",
-    image: "https://thumbs.dreamstime.com/b/peque%C3%B1o-robot-con-lupa-centrada-en-la-investigaci%C3%B3n-y-observaci%C3%B3n-d-ilustraci%C3%B3n-del-que-sostiene-el-foco-de-ampliaci%C3%B3n-sobre-177403888.jpg",
+    image: "https://img.freepik.com/vector-premium/robot-jardinero-pala-planta-su-mano-ilustracion_124715-170.jpg",
     route: "/identification"
   },
   {
     title: "Buscador",
-    description: "Busca plantas.",
-    image: "https://thumbs.dreamstime.com/b/peque%C3%B1o-robot-con-lupa-centrada-en-la-investigaci%C3%B3n-y-observaci%C3%B3n-d-ilustraci%C3%B3n-del-que-sostiene-el-foco-de-ampliaci%C3%B3n-sobre-177403888.jpg",
+    description: "Busca plantas desconocidas y descubre información interesante.",
+    image: "https://png.pngtree.com/png-vector/20241210/ourmid/pngtree-cute-robot-watering-plant-clipart-illustration-png-image_14687655.png",
     route: "/browser"
   },
   {
-    title: "Identificación",
-    description: "Identifica plantas a través de imágenes de referencia.",
-    image: "https://thumbs.dreamstime.com/b/peque%C3%B1o-robot-con-lupa-centrada-en-la-investigaci%C3%B3n-y-observaci%C3%B3n-d-ilustraci%C3%B3n-del-que-sostiene-el-foco-de-ampliaci%C3%B3n-sobre-177403888.jpg"
+    title: "Familias",
+    description: "Observa las familias de plantas que has estado buscando.",
+    image: "https://static.vecteezy.com/system/resources/previews/002/298/758/non_2x/a-potted-houseplant-in-a-flat-cartoon-style-an-element-for-decorating-your-home-room-or-office-illustration-isolated-on-a-white-background-vector.jpg",
+    route: "/families"
   },
   {
-    title: "Identificación",
-    description: "Identifica plantas a través de imágenes de referencia.",
-    image: "https://thumbs.dreamstime.com/b/peque%C3%B1o-robot-con-lupa-centrada-en-la-investigaci%C3%B3n-y-observaci%C3%B3n-d-ilustraci%C3%B3n-del-que-sostiene-el-foco-de-ampliaci%C3%B3n-sobre-177403888.jpg"
+    title: "Chatbot",
+    description: "Habla con nuestro robot sobre cualquier duda de plantas que tengas.",
+    image: "https://st3.depositphotos.com/18024562/34601/v/450/depositphotos_346018078-stock-illustration-smilling-chat-bot-idea-lamp.jpg",
+    route: "/plant-bot"
   },
   {
-    title: "Identificación",
-    description: "Identifica plantas a través de imágenes de referencia.",
-    image: "https://thumbs.dreamstime.com/b/peque%C3%B1o-robot-con-lupa-centrada-en-la-investigaci%C3%B3n-y-observaci%C3%B3n-d-ilustraci%C3%B3n-del-que-sostiene-el-foco-de-ampliaci%C3%B3n-sobre-177403888.jpg"
-  },
-  {
-    title: "Identificación",
-    description: "Identifica plantas a través de imágenes de referencia.",
-    image: "https://thumbs.dreamstime.com/b/peque%C3%B1o-robot-con-lupa-centrada-en-la-investigaci%C3%B3n-y-observaci%C3%B3n-d-ilustraci%C3%B3n-del-que-sostiene-el-foco-de-ampliaci%C3%B3n-sobre-177403888.jpg"
+    title: "Estadísticas",
+    description: "Conoce el uso de la aplicación a través de gráficos",
+    image: "https://img.freepik.com/vector-premium/icono-diseno-editable-soporte-robotico_362714-814.jpg",
+    route: "statistics"
   }];
 
   constructor(private router : Router){
