@@ -6,6 +6,7 @@ import { Browser } from './pages/browser/browser';
 import { Families } from './pages/families/families';
 import { Statistics } from './pages/statistics/statistics';
 import { PlantBot } from './pages/plant-bot/plant-bot';
+import { PlantDetail } from './pages/plant-detail/plant-detail';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path:"statistics",
     component: Statistics
+  },
+  {
+    path:"detail/:token",
+    component: PlantDetail
   }
 ];
 

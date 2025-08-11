@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Api } from '../../core/service/api';
 import { Plant } from '../../core/models/plant';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-browser',
@@ -15,7 +16,7 @@ export class Browser {
   currentPage : number = 1;
   itemsPerPage : number = 10;
 
-  constructor(private apiService : Api){}
+  constructor(private apiService : Api, private router : Router){}
 
   getPlants(){
     if(this.keyword != ''){
@@ -38,5 +39,9 @@ export class Browser {
       this.paginatedPlants = this.plantsCollection.slice(start, start + this.itemsPerPage);
       this.currentPage = newPage;
     }
+  }
+
+  navigateTo(i : number){
+    this.router.navigate(['/detail', this.plantsCollection[i].access_token]);
   }
 }

@@ -7,13 +7,13 @@ import { Identification } from './pages/identification/identification';
 import { Browser } from './pages/browser/browser';
 import { Families } from './pages/families/families';
 import { PlantBot } from './pages/plant-bot/plant-bot';
-import { ChatHistory } from './pages/chat-history/chat-history';
 import { Statistics } from './pages/statistics/statistics';
 import { Home } from './pages/home/home';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { PlantDetail } from './pages/plant-detail/plant-detail';
 
 @NgModule({
   declarations: [
@@ -22,9 +22,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     Browser,
     Families,
     PlantBot,
-    ChatHistory,
     Statistics,
-    Home
+    Home,
+    PlantDetail
   ],
   imports: [
     CommonModule,

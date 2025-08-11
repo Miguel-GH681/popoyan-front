@@ -2,18 +2,18 @@
   <div class="mb-5 mt-4">
       <h2>Estadísticas</h2>
       <p>
-          Ingrese el nombre científico o el nombre común de una planta para buscar información.
+          A continuación puedes ver infomación sobre el consumo, disponible y el total de créditos de tu cuenta.
       </p>
   </div>
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-4">
       <div *ngFor="let value of data">
         <h5>{{value.name}}</h5>
-        <p></p>
-        <br><br><br>
+        <p>Has consumido <b>{{value.value}}%</b></p>
+        <br><br>
       </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-8">
       <ngx-charts-pie-chart
       [scheme]="color"
       [results]="data"

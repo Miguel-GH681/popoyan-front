@@ -17,6 +17,13 @@ export class Api {
     return this.http.get(`${this.baseUrl}/plants/plants`, {params});
   }
 
+  getPlant(token : string){
+    let params = new HttpParams();
+    params = params.set('token', token);
+
+    return this.http.get(`http://localhost:3000/api/plants?token=${token}`);
+  }
+
   postIdentification(value : any){
     return this.http.post(`${this.baseUrl}/plants`, value);
   }
