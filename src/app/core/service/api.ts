@@ -25,6 +25,14 @@ export class Api {
     return this.http.get(`${this.baseUrl}/chats`);
   }
 
+  postChat(value : any){
+    return this.http.post('http://localhost:3000/api/chats/chat', value);
+  }
+  
+  deleteChat(idChat : number){
+    return this.http.delete(`http://localhost:3000/api/chats/${idChat}`);
+  }
+
   getMessages(idChat : number){
     return this.http.get(`${this.baseUrl}/chats/message/${idChat}`);
   }

@@ -1,14 +1,27 @@
-<ngx-charts-pie-chart
-  [view]="view"
-  [scheme]="colorScheme"
-  [results]="data"
-  [gradient]="gradient"
-  [legend]="showLegend"
-  [legendPosition]="legendPosition"
-  [labels]="showLabels"
-  [doughnut]="isDoughnut"
-  (select)="onSelect($event)"
-  (activate)="onActivate($event)"
-  (deactivate)="onDeactivate($event)"
-  >
-</ngx-charts-pie-chart>
+<div class="container">
+  <div class="mb-5 mt-4">
+      <h2>Estadísticas</h2>
+      <p>
+          Ingrese el nombre científico o el nombre común de una planta para buscar información.
+      </p>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div *ngFor="let value of data">
+        <h5>{{value.name}}</h5>
+        <p></p>
+        <br><br><br>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <ngx-charts-pie-chart
+      [scheme]="color"
+      [results]="data"
+      [gradient]="gradient"
+      [labels]="showLabels"
+      [doughnut]="isDoughnut"
+      >
+      </ngx-charts-pie-chart>
+    </div>
+  </div>
+</div>

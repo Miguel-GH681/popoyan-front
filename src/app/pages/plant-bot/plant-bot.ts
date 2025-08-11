@@ -27,6 +27,19 @@ export class PlantBot implements OnInit{
     });
   }
 
+  newChat(){
+    this.apiService.postChat({title: `Chat ${this.chats.length + 1}`}).subscribe((res : any)=>{
+      this.chats.push({id_chat: res.id_chat, messages: []})
+    });
+  }
+  
+  deleteChat(index : number){
+    this.apiService.deleteChat(this.chats[index].id_chat).subscribe((res:any)=>{
+      this.chats.splice(index, 1);
+      this.selectChat(0);
+    });
+  }
+
   get currentChat() {
     return this.chats[this.selectedChatIndex];
   }

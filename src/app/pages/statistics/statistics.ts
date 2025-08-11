@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Api } from '../../core/service/api';
+import { ScaleType } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'app-statistics',
@@ -9,17 +10,17 @@ import { Api } from '../../core/service/api';
 })
 export class Statistics implements OnInit{
   data: any[] = [];
-  view: any[] = [700, 400];
-
-  // options
+  view: [number, number] = [700, 400];
   gradient: boolean = true;
-  showLegend: boolean = true;
   showLabels: boolean = true;
   isDoughnut: boolean = false;
   legendPosition: string = 'below';
 
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  color = {
+    name: 'custom',
+    selectable: true,
+    group: ScaleType.Ordinal,
+    domain: ['#4EA93B', '#258D19']
   };
 
   constructor(private apiServer : Api) {
@@ -33,18 +34,5 @@ export class Statistics implements OnInit{
     this.apiServer.getStatistics().subscribe((st:any)=>{
       this.data = st;
     })
-  }
-
-
-  onSelect(data : any): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
-  }
-
-  onActivate(data : any): void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
-  }
-
-  onDeactivate(data : any): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
 }

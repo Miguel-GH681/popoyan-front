@@ -23,8 +23,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let plant of paginatedPlants; let i = index">
-                    <td>{{i + 1}}</td>
+                <tr *ngFor="let plant of paginatedPlants">
+                    <td>{{plant.order}}</td>
                     <td>{{plant.name}}</td>
                     <td class="d-flex justify-content-center"><img [src]="'data:image/png;base64,' + plant.img" [alt]="plant.name" height="70px" width="70px"></td>
                 </tr>
