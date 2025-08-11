@@ -33,9 +33,10 @@ export class Browser {
   }
 
   changePage(newPage : number){
-    if(newPage >= 1 && newPage < this.getTotalPages){
+    if(newPage >= 1 && newPage <= this.getTotalPages){
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      this.paginatedPlants = this.plantsCollection.slice(start, start + this.itemsPerPage);
       this.currentPage = newPage;
-      this.paginatedPlants = this.plantsCollection.slice(this.currentPage, this.currentPage + newPage)
     }
   }
 }

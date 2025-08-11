@@ -23,6 +23,7 @@ export class PlantBot implements OnInit{
   loadChats(){
     this.apiService.getChats().subscribe((chats : any)=>{
       this.chats = chats;
+      this.selectChat(0);
     });
   }
 
@@ -30,9 +31,17 @@ export class PlantBot implements OnInit{
     return this.chats[this.selectedChatIndex];
   }
 
-  sendMessage() {
+  sendMessage(){
     if (!this.newMessage.trim()) return;
-      this.currentChat.messages.push({chat_role: '', content: '', id_chat: 2});
+      const userMessage : Message = {
+        chat_role: 'user', 
+        content: this.newMessage, 
+        id_chat: this.currentChat.id_chat
+      };
+      this.currentChat.messages.push(userMessage);
+      this.apiService.postMessage(userMessage).subscribe((assistantMessage:any)=>{
+        this.currentChat.messages.push(assistantMessage);
+      });
       this.newMessage = '';
   }
 

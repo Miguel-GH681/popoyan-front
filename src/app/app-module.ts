@@ -13,6 +13,7 @@ import { Home } from './pages/home/home';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     BrowserModule,
     FormsModule,
+    NgxChartsModule,
     HttpClientModule,
     AppRoutingModule
   ],

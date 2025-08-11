@@ -1,0 +1,35 @@
+.menu-item{
+    background-color: #FFF;
+    border: 1px solid #4EA93B;
+    border-radius: 10px;
+    height: 65px;
+    margin: 20px 0px;
+}
+
+.menu-item:hover{
+    border: 2px solid #258D19;
+    cursor: pointer;
+}
+
+.icon-col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.description-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.description-col p{
+    margin: 0px;
+    padding: 0px;
+}
+
+@media (max-width: 770px){
+    .menu-item{
+        height: 85px;
+    }
+}
