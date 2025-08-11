@@ -14,25 +14,27 @@ export class Identification{
     constructor(private apiService : Api){}
 
     getIdentification(){
-        const value = {
-            images: [this.imgSrc],
-            latitude: 49.207,
-            longitude: 16.608,
-            similar_images: true
+        if(this.imgSrc){
+            const value = {
+                images: [this.imgSrc],
+                latitude: 49.207,
+                longitude: 16.608,
+                similar_images: true
+            }
+            this.apiService.postIdentification(value).subscribe((identifications : any)=>{
+                this.identifications = identifications
+            });
         }
-        this.apiService.postIdentification(value).subscribe((identifications : any)=>{
-            this.identifications = identifications
-        });
     }
 
     onFileSelected(event : any){
         const file : File = event.target.files[0];
         if(file){
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = ()=>{
-            this.imgSrc = reader.result;
-        }
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = ()=>{
+                this.imgSrc = reader.result;
+            }
         }
     }
 }

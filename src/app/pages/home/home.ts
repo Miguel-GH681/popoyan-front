@@ -22,19 +22,19 @@ export class Home {
   },
   {
     title: "Familias",
-    description: "Observa las familias de plantas que has estado buscando.",
+    description: "Encuentra una galería de plantas agrupadas por familia.",
     icon: "grass",
     route: "/families"
   },
   {
-    title: "Chatbot",
-    description: "Habla con nuestro robot sobre cualquier duda de plantas que tengas.",
+    title: "PlantBot",
+    description: "Habla con nuestro PlantBot sobre cualquier duda de plantas que tengas.",
     icon: "chat",
     route: "/plant-bot"
   },
   {
     title: "Estadísticas",
-    description: "Conoce el uso de la aplicación a través de gráficos",
+    description: "Conoce el uso de la aplicación a través de gráficos.",
     icon: "equalizer",
     route: "statistics"
   }];
@@ -45,5 +45,4 @@ export class Home {
   navigateTo(route : string){
     this.router.navigate([route])
   }
-
 }

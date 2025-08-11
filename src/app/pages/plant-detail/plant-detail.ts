@@ -10,19 +10,19 @@ import { PlantData } from '../../core/models/plant-detail';
   styleUrl: './plant-detail.css'
 })
 export class PlantDetail implements OnInit{
-  token : string = '';
+  urlParams : string = '';
   plant : PlantData = {
-    id_plant: 5,
-    name: "Cosmos bipinnatus",
-    taxonomy_class: "Magnoliopsida",
-    genus: "Cosmos",
-    taxonomy_order: "Asterales",
-    family: "Asteraceae",
-    phylum: "Tracheophyta",
-    kingdom: "Plantae",
-    description: "Cosmos bipinnatus, commonly called the garden cosmos or Mexican aster, is a medium-sized flowering herbaceous plant in the daisy family Asteraceae, native to the Americas. The species and its varieties and cultivars are popular as ornamental plants in temperate climate gardens.",
-    image: "https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/12d/12d9d5fddc27d40393bbd688d749ad7d01ccce8a.jpg",
-    access_token: "MlZVZwppE3JXb1ZkAmNjVhl6JkVrWAcyAjRVbRNxVWI-"
+    id_plant: 0,
+    name: "",
+    taxonomy_class: "",
+    genus: "",
+    taxonomy_order: "",
+    family: "",
+    phylum: "",
+    kingdom: "",
+    description: "",
+    image: "",
+    access_token: ""
   };
 
   constructor(private apiService : Api, private route : ActivatedRoute){}
@@ -32,21 +32,12 @@ export class PlantDetail implements OnInit{
   }
 
   getPlantDetail(){
-    this.token = this.route.snapshot.paramMap.get('token') || '';
-    // this.apiService.getPlant(this.token).subscribe((plant:any)=>{  
-    //   this.plant = {
-    //       id_plant: 5,
-    //       name: "Cosmos bipinnatus",
-    //       taxonomy_class: "Magnoliopsida",
-    //       genus: "Cosmos",
-    //       taxonomy_order: "Asterales",
-    //       family: "Asteraceae",
-    //       phylum: "Tracheophyta",
-    //       kingdom: "Plantae",
-    //       description: "Cosmos bipinnatus, commonly called the garden cosmos or Mexican aster, is a medium-sized flowering herbaceous plant in the daisy family Asteraceae, native to the Americas. The species and its varieties and cultivars are popular as ornamental plants in temperate climate gardens.",
-    //       image: "https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/12d/12d9d5fddc27d40393bbd688d749ad7d01ccce8a.jpg",
-    //       access_token: "MlZVZwppE3JXb1ZkAmNjVhl6JkVrWAcyAjRVbRNxVWI-"
-    //   }
-    // });
+    this.urlParams = this.route.snapshot.paramMap.get('token') || '';    
+    let token = this.urlParams.split('-')[0];
+    let name = this.urlParams.split('-')[1];
+
+    this.apiService.getPlant(token, name).subscribe((plant:any)=>{  
+      this.plant = plant;
+    });
   }
 }

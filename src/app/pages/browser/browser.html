@@ -1,15 +1,15 @@
 <div class="container">
-    <div>
+    <div class="pt-4">
         <h2>Buscador</h2>
         <p>
-            Ingrese el nombre científico o el nombre común de una planta para buscar información.
+            Ingrese el nombre científico o el nombre común de una planta para obtener un listado de plantas.
         </p>
         <div class="row d-flex justify-content-center">
             <div class="col-lg-5 form-container">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Ingrese una palabra" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="keyword">
                 </div>
-                <button type="submit" class="btn btn-primary" (click)="getPlants()">Buscar</button>
+                <button type="submit" class="btn btn-success" (click)="getPlants()">Buscar</button>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">imagen</th>
+                    <th scope="col">fotografía</th>
                 </tr>
             </thead>
             <tbody>

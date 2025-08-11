@@ -42,6 +42,6 @@ export class Browser {
   }
 
   navigateTo(i : number){
-    this.router.navigate(['/detail', this.plantsCollection[i].access_token]);
+    this.router.navigate(['/detail', this.plantsCollection[i].access_token + encodeURIComponent(this.plantsCollection[i].name)]);
   }
 }
