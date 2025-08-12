@@ -10,6 +10,7 @@ import { ScaleType } from '@swimlane/ngx-charts';
 })
 export class Statistics implements OnInit{
   data: any[] = [];
+  measures : any[] = [];
   view: [number, number] = [700, 400];
   gradient: boolean = true;
   showLabels: boolean = true;
@@ -20,7 +21,7 @@ export class Statistics implements OnInit{
     name: 'custom',
     selectable: true,
     group: ScaleType.Ordinal,
-    domain: ['#4EA93B', '#258D19']
+    domain: ['#c9413cff', '#258D19']
   };
 
   constructor(private apiServer : Api) {
@@ -31,8 +32,9 @@ export class Statistics implements OnInit{
   }
 
   loadStatistics(){
-    this.apiServer.getStatistics().subscribe((st:any)=>{
-      this.data = st;
+    this.apiServer.getStatistics().subscribe((result:any)=>{
+      this.data = result.filter((row:any)=> row.status == true);
+      this.measures = result;
     })
   }
 }

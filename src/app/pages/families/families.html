@@ -1,1 +1,20 @@
-<p>families works!</p>
+<div class="container">
+    <div class="pt-4 pb-4">
+        <h2>Familias</h2>
+        <p>
+            Estas son las familias de plantas que has buscada ultimamente.
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 d-flex justify-content-center" *ngFor="let family of families">
+            <div class="card mb-4">
+                <div class="image-container">
+                    <img [src]="family.image" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{family.family}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -25,6 +25,10 @@ export class Api {
     return this.http.get(`http://localhost:3000/api/plants`, {params});
   }
 
+  getFamilies(){
+    return this.http.get(`${this.baseUrl}/plants/families`);
+  }
+
   postIdentification(value : any){
     return this.http.post(`${this.baseUrl}/plants`, value);
   }

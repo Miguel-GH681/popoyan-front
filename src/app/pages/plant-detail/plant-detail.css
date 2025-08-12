@@ -1,8 +1,8 @@
 .image-container{
     display: flex;
-    align-items: center;
     justify-content: center;
-    height: 100%;
+    align-items: center;
+    height: 80%;
     width: 100%;
 }
 
@@ -11,4 +11,17 @@ img{
     width: 80%;
     height: 80%;
     object-fit: cover;
+}
+
+.taxonomy-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media(max-width: 995px){
+    .image-container{
+        /* height: 80%; */
+        width: 75%;
+    }
 }

@@ -7,9 +7,9 @@
   </div>
   <div class="row">
     <div class="col-lg-4">
-      <div *ngFor="let value of data">
+      <div *ngFor="let value of measures">
         <h5>{{value.name}}</h5>
-        <p>Has consumido <b>{{value.value}}%</b></p>
+        <p>{{value.description}}</p>
         <br><br>
       </div>
     </div>
